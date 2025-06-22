@@ -80,7 +80,12 @@ class ImageComparisonApp:
 
         self.toggle_region_inputs()
 
-        ttk.Button(input_frame, text="Compare Images", command=self.compare_images_action).grid(row=5, column=0, columnspan=3, pady=10)
+        # Action buttons
+        action_frame = ttk.Frame(input_frame)
+        action_frame.grid(row=5, column=1, pady=10)
+
+        ttk.Button(action_frame, text="Compare Images", command=self.compare_images_action).pack(side=tk.LEFT, padx=5)
+        ttk.Button(action_frame, text="Exit", command=self.master.destroy).pack(side=tk.LEFT, padx=5)
 
         # --- Results Frame ---
         results_frame = ttk.LabelFrame(self.master, text="Comparison Results")
